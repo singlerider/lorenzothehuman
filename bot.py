@@ -34,7 +34,8 @@ class Connection:
         }
         resp = requests.post(url=url, params=params, headers=headers)
         data = resp.content
-        print data
+        if type(data) == str:
+            sys.exit()
         return data
 
     def mark_as_uploaded(self, message_id):
